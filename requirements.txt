@@ -1,0 +1,4 @@
+Package                Version
+---------------------- -------
+mysql-connector-python 9.4.0
+pip                    24.0
