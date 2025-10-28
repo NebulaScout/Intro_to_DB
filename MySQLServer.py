@@ -1,18 +1,19 @@
-import mysql.connector
+import mysql.connector 
 
 
-# try:
-db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="!kabi@root104274eR$?"   
-)
+try:
+    with mysql.connector.connect(
+        host="localhost",
+        user="",
+        password=""   
+    ) as connection:
+        query = "CREATE DATABASE IF NOT EXISTS alx_book_store;"
 
-db_cursor = db.cursor()
+        with connection.cursor() as cursor:
+            cursor.execute(query)
+            connection.commit()
 
-sql = "CREATE DATABASE IF NOT EXISTS alx_book_store;"
-db_cursor.execute(sql)
-db.commit()
+    print("Database 'alx_book_store' created successfully!")
 
-print("Database 'alx_book_store' created successfully!")
-
+except mysql.connector.Error as e:
+    print(e)
